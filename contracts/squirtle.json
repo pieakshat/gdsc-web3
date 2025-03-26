@@ -1,0 +1,15 @@
+{
+    "name": "Squirtle",
+    "description": "A water-type Pokemon with a tough shell.",
+    "image": "bafkreihgcln6eevbbnwteq2rar553mwo23o3zobiyy6u63fugvmi5cly2i",
+    "attributes": [
+        {
+            "trait_type": "Type",
+            "value": "Water"
+        },
+        {
+            "trait_type": "Level",
+            "value": 5
+        }
+    ]
+}

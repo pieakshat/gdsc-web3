@@ -1,0 +1,15 @@
+{
+    "name": "Bulbasaur",
+    "description": "A grass-type Pokemon with a plant on its back.",
+    "image": "ipfs://bafkreidyml23ppattdjj5cf6wewe7co36v775tor2khsrvnfof3vqppspi",
+    "attributes": [
+        {
+            "trait_type": "Type",
+            "value": "Grass"
+        },
+        {
+            "trait_type": "Level",
+            "value": 5
+        }
+    ]
+}

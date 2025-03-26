@@ -1,0 +1,15 @@
+{
+    "name": "Charmander",
+    "description": "A fiery little Pokemon with a burning tail.",
+    "image": "ipfs://bafkreiars7lwgo5edhkcf5ldmkmmmag4r7lhtsxk2nti4b4ox4fnsd6jki",
+    "attributes": [
+        {
+            "trait_type": "Type",
+            "value": "Fire"
+        },
+        {
+            "trait_type": "Level",
+            "value": 5
+        }
+    ]
+}
