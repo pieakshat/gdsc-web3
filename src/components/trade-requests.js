@@ -24,7 +24,7 @@ export default function TradeRequests({ tradeRequests, loading }) {
       <div className="text-center py-12 bg-white rounded-lg shadow">
         <h3 className="text-xl font-semibold mb-2">No trade requests</h3>
         <p className="text-gray-500">
-          You don't have any pending trade requests
+          You don t have any pending trade requests
         </p>
       </div>
     );
@@ -44,8 +44,8 @@ export default function TradeRequests({ tradeRequests, loading }) {
                   request.status === "pending"
                     ? "outline"
                     : request.status === "accepted"
-                    ? "success"
-                    : "destructive"
+                      ? "success"
+                      : "destructive"
                 }
               >
                 {request.status.charAt(0).toUpperCase() +
@@ -60,7 +60,7 @@ export default function TradeRequests({ tradeRequests, loading }) {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="border rounded-md p-4">
                 <h3 className="font-semibold mb-2 text-center">
-                  They're Offering
+                  They re Offering
                 </h3>
                 <div className="flex flex-col items-center">
                   <div className="relative h-32 w-32 mb-2">

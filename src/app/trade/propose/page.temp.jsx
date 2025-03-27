@@ -1,4 +1,6 @@
 "use client";
+export const dynamic = "force-dynamic";
+
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
@@ -161,12 +163,12 @@ export default function ProposeTradePage() {
                       targetPokemon.rarity === "Common"
                         ? "bg-gray-500"
                         : targetPokemon.rarity === "Uncommon"
-                        ? "bg-green-500"
-                        : targetPokemon.rarity === "Rare"
-                        ? "bg-red-500"
-                        : targetPokemon.rarity === "Epic"
-                        ? "bg-purple-500"
-                        : "bg-yellow-500"
+                          ? "bg-green-500"
+                          : targetPokemon.rarity === "Rare"
+                            ? "bg-red-500"
+                            : targetPokemon.rarity === "Epic"
+                              ? "bg-purple-500"
+                              : "bg-yellow-500"
                     }
                   >
                     {targetPokemon.rarity}
@@ -216,15 +218,15 @@ export default function ProposeTradePage() {
                           ?.rarity === "Common"
                           ? "bg-gray-500"
                           : myPokemons.find((p) => p.id === selectedPokemon)
-                              ?.rarity === "Uncommon"
-                          ? "bg-green-500"
-                          : myPokemons.find((p) => p.id === selectedPokemon)
+                            ?.rarity === "Uncommon"
+                            ? "bg-green-500"
+                            : myPokemons.find((p) => p.id === selectedPokemon)
                               ?.rarity === "Rare"
-                          ? "bg-red-500"
-                          : myPokemons.find((p) => p.id === selectedPokemon)
-                              ?.rarity === "Epic"
-                          ? "bg-purple-500"
-                          : "bg-yellow-500"
+                              ? "bg-red-500"
+                              : myPokemons.find((p) => p.id === selectedPokemon)
+                                ?.rarity === "Epic"
+                                ? "bg-purple-500"
+                                : "bg-yellow-500"
                       }
                     >
                       {myPokemons.find((p) => p.id === selectedPokemon)?.rarity}
@@ -263,11 +265,10 @@ export default function ProposeTradePage() {
                 {myPokemons.map((pokemon) => (
                   <Card
                     key={pokemon.id}
-                    className={`overflow-hidden cursor-pointer hover:shadow-md transition-shadow ${
-                      selectedPokemon === pokemon.id
+                    className={`overflow-hidden cursor-pointer hover:shadow-md transition-shadow ${selectedPokemon === pokemon.id
                         ? "ring-2 ring-red-500"
                         : ""
-                    }`}
+                      }`}
                     onClick={() => setSelectedPokemon(pokemon.id)}
                   >
                     <CardContent className="p-4">
