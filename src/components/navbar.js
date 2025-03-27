@@ -3,28 +3,22 @@
 import { useState, useEffect } from "react";
 import { ethers } from "ethers";
 
-const CONTRACTADDRESS = ""; // Add your contract address if needed
-
-const Navbar = () => {
+const Navbar = ({ setAccount, setProvider, setSigner }) => {
     const [connected, setConnected] = useState(false);
-    const [account, setAccount] = useState(null);
-    const [provider, setProvider] = useState(null);
-    const [signer, setSigner] = useState(null);
+    const [localAccount, setLocalAccount] = useState(null);
 
-    // Connect Wallet and Setup Provider & Signer
     const connectWallet = async () => {
         if (window.ethereum) {
             try {
-                // Request account access
                 const accounts = await window.ethereum.request({
                     method: "eth_requestAccounts",
                 });
 
-                // Set account
-                setAccount(accounts[0]);
+                const account = accounts[0];
+                setLocalAccount(account);
+                setAccount(account);
                 setConnected(true);
 
-                // Create provider and signer instances
                 const providerInstance = new ethers.BrowserProvider(window.ethereum);
                 setProvider(providerInstance);
 
@@ -38,15 +32,14 @@ const Navbar = () => {
         }
     };
 
-    // Disconnect Wallet
-    const disconnectWallet = async () => {
+    const disconnectWallet = () => {
+        setLocalAccount(null);
         setAccount(null);
-        setConnected(false);
         setProvider(null);
         setSigner(null);
+        setConnected(false);
     };
 
-    // Check if wallet is already connected
     useEffect(() => {
         const checkConnection = async () => {
             if (window.ethereum) {
@@ -54,7 +47,9 @@ const Navbar = () => {
                 const accounts = await providerInstance.listAccounts();
 
                 if (accounts.length > 0) {
-                    setAccount(accounts[0].address);
+                    const account = accounts[0].address;
+                    setLocalAccount(account);
+                    setAccount(account);
                     setProvider(providerInstance);
 
                     const signerInstance = await providerInstance.getSigner();
@@ -74,12 +69,12 @@ const Navbar = () => {
                 <button
                     onClick={connected ? disconnectWallet : connectWallet}
                     className={`${connected
-                            ? "bg-red-500 hover:bg-red-600"
-                            : "bg-yellow-500 hover:bg-yellow-600"
+                        ? "bg-red-500 hover:bg-red-600"
+                        : "bg-yellow-500 hover:bg-yellow-600"
                         } text-black font-semibold px-4 py-2 rounded-lg transition`}
                 >
                     {connected
-                        ? `Disconnect (${account.slice(0, 6)}...${account.slice(-4)})`
+                        ? `Disconnect (${localAccount?.slice(0, 6)}...${localAccount?.slice(-4)})`
                         : "Connect Wallet"}
                 </button>
             </div>
